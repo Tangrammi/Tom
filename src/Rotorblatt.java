@@ -15,6 +15,6 @@ public class Rotorblatt {
 
     @Override
     public String toString() {
-        return "Anstellwinkel=" + anstellwinkel;
+        return String.format("Anstellwinkel=%.2f", anstellwinkel);
     }
 }
