@@ -11,8 +11,8 @@ public class Rotorkopf {
         this.anzahlRotorblaetter = anzahlRotorblaetter;
         this.winkel = Math.clamp(winkel, 0.0, 360.0);
         this.kollektiv = Math.clamp(kollektiv, -100.0, 100.0);
-        this.zyklisch_nick = Math.clamp(kollektiv, -100.0, 100.0);
-        this.zyklisch_roll = Math.clamp(kollektiv, -100.0, 100.0);
+        this.zyklisch_nick = Math.clamp(zyklisch_nick, -100.0, 100.0);
+        this.zyklisch_roll = Math.clamp(zyklisch_roll, -100.0, 100.0);
 
         this.rotorblatt = new Rotorblatt[anzahlRotorblaetter];
 
@@ -80,14 +80,13 @@ public class Rotorkopf {
         return anzahlRotorblaetter;
     }
 
-    public String zeigeRotorblaetter() {
+    public void zeigeRotorblaetter() {
         String ausgabe = "";
 
         for (int i = 0; i < rotorblatt.length; i++) {
-            ausgabe += "Anstellwinkel Rotorblatt " + i +": Anstellwinkel=" + rotorblatt[i].getAnstellwinkel() + "\n";
+            ausgabe = "Anstellwinkel Rotorblatt " + i +": Anstellwinkel=" + rotorblatt[i].getAnstellwinkel();
+            System.out.println(ausgabe);
         }
-
-        return ausgabe;
     }
 
     @Override

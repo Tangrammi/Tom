@@ -4,7 +4,7 @@ public class Main {
     public static void main(String[] args) {
         Rotorkopf r = new Rotorkopf(4,  45, 50, 30, 20);
 
-        System.out.println(r.zeigeRotorblaetter());
+        r.zeigeRotorblaetter();
         System.out.println(r);
 
     }
