@@ -22,14 +22,17 @@ public class Rotorkopf {
     public void aktualisiereRotorblaetter() {
         double neuerWinkel = 2*Math.PI*winkel/360;
 
+        double k = berechneKollektiv();
+        berechneZyklisch();
+
         double winkelSchritt = 2*Math.PI/anzahlRotorblaetter;
 
         for(int i = 0; i < rotorblatt.length; i++) {
             double versatz = neuerWinkel + (i * winkelSchritt);
 
-            double anstellwinkel = kollektiv
-                    + (zyklisch_nick * Math.cos(versatz))
-                    + (zyklisch_roll * Math.sin(versatz));
+            double anstellwinkel = k
+                    + (zyklisch[0] * Math.cos(versatz))
+                    + (zyklisch[1] * Math.sin(versatz));
 
             rotorblatt[i] = new Rotorblatt(anstellwinkel);
         }
@@ -84,7 +87,7 @@ public class Rotorkopf {
         String ausgabe = "";
 
         for (int i = 0; i < rotorblatt.length; i++) {
-            ausgabe = "Anstellwinkel Rotorblatt " + i +": Anstellwinkel=" + rotorblatt[i].getAnstellwinkel();
+            ausgabe = "Anstellwinkel Rotorblatt " + i + String.format(": Anstellwinkel=%.2f", rotorblatt[i].getAnstellwinkel());
             System.out.println(ausgabe);
         }
     }
